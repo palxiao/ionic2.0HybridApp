@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>前端相关</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <!-- <ion-icon name="{{item.icon}}" item-left></ion-icon> -->
+      {{item.title}}
+      <!-- <div class="item-note" item-right>
+        {{item.note}}
+      </div>
+ -->    </button>
+  </ion-list>
+  
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="100px">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="正在加载更多...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+<!--   <div *ngIf="selectedItem" padding>
+    {{selectedItem.note}}
+  </div> -->
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>前端相关</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)" (ionPull)="doPulling($event)">
+    <ion-refresher-content
+      pullingText="下拉刷新..."
+      refreshingText="正在加载...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <!-- <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <ion-icon name="{{item.icon}}" item-left></ion-icon>
+      {{item.title}}
+    </button> -->
+
+    <ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      {{ item.title }}
+    </ion-item>
+  </ion-list>
+  
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="100px">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+<!--   <div *ngIf="selectedItem" padding>
+    {{selectedItem.note}}
+  </div> -->
+</ion-content>
